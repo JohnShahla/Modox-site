@@ -1,0 +1,60 @@
+{% extends '_base.html' %}
+
+{% block title %}
+Fadi Rezek Salloum | Projects List
+{% endblock title %}
+
+{% block content %}
+
+<main class="main">
+    <section class="projects__list">
+
+        <h2 class="section__title">
+            Projects List
+        </h2>
+
+        <div class="projects__container container grid">
+            <div class="projects__content grid">
+
+                {% for project in projects %}
+
+                <div class="projects__list-item">
+                    <img src="{{project.thumbnail.url}}" alt="{{project.name}} Thumbnail" class="projects__list-img">
+                    <h3 class="projects__list-title">{{project.name}}</h3>
+                    <p class="projects__list-description">
+                        {{project.description|truncatewords:20}}
+                    </p>
+                    <a href="{{project.get_absolute_url}}" class="button button__flex projects__list-btn">
+                        View Details <i class="uil uil-arrow-right button__icon projects__list-icon"></i>
+                    </a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="pagination p4">
+            <ul>
+                {% for p in projects.paginator.page_range %}
+                {% if projects.number == p %}
+                <a href="?page={{p}}" class="is-active">
+                    <li>
+                        {{p}}
+                    </li>
+                </a>
+                {% else %}
+                <a href="?page={{p}}">
+                    <li>
+                        {{p}}
+                    </li>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        
+    </section>
+</main>
+
+{% endblock content %}

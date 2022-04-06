@@ -1,0 +1,75 @@
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="{% url 'main:home' %}" class="nav__logo">Fadi</a>
+
+        <div class="nav__menu" id="nav__menu">
+            <ul class="nav__list grid">
+
+                {% if request.resolver_match.url_name == 'home' %}
+
+                <li class="nav__item">
+                    <a href="#home" class="nav__link active-link">
+                        <i class="uil uil-estate nav__icon"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#about" class="nav__link">
+                        <i class="uil uil-user nav__icon"></i>
+                        About
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#skills" class="nav__link">
+                        <i class="uil uil-file-info-alt nav__icon"></i>
+                        Skills
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#services" class="nav__link">
+                        <i class="uil uil-suitcase-alt nav__icon"></i>
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#portfolio" class="nav__link">
+                        <i class="uil uil-scenery nav__icon"></i>
+                        Portfolio
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link">
+                        <i class="uil uil-message nav__icon"></i>
+                        Contact Me
+                    </a>
+                </li>
+
+                {% else %}
+
+                <li class="nav__item">
+                    <a href="{% url 'main:home' %}" class="nav__link active-link">
+                        <i class="uil uil-estate nav__icon"></i>
+                        Home
+                    </a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+            <i class="uil uil-times nav__close" id="nav__close"></i>
+        </div>
+
+        <div class="nav__btns">
+            <i class="ui uil-moon change-theme" id="theme-button"></i>
+
+            <div class="nav__toggle" id="nav__toggle">
+                <i class="uil uil-apps"></i>
+            </div>
+        </div>
+    </nav>
+</header>

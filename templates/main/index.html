@@ -1,0 +1,563 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+Fadi Rezek Salloum | Home
+{% endblock title %}
+
+{% block content %}
+
+<main class="main">
+    <section class="home section " id="home">
+        <div class="home__container container grid">
+
+            <div class="home__content grid">
+                <div class="home__social">
+                    <a href="https://linkedin.com/in/fadi-rezek-salloum/" target="_blank" class="home__social-icon">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://github.com/fadi-rezek-salloum" target="_blank" class="home__social-icon">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                    <a href="https://www.facebook.com/fadi.rezeksalloum" target="_blank" class="home__social-icon">
+                        <i class="uil uil-facebook-f"></i>
+                    </a>
+                </div>
+
+                <div class="home__img">
+                    <img src="https://res.cloudinary.com/fadi-rezek-salloum/image/upload/q_100/v1633263691/Common%20Images/Personal%20Images/DSC_1229_vl3ind.webp"
+                        class="profile__img" alt="My Image">
+                </div>
+
+                <div class="home__data">
+                    <h1 class="home__title">
+                        Hi, I'm Fadi Rezek Salloum
+                    </h1>
+                    <h3 class="home__subtitle">
+                        Full-Stack Web Developer
+                    </h3>
+                    <p class="home__description">
+                        Motivated web developer who loves to always learn new techniques, creatively solve problems and develop maintainable websites.
+                    </p>
+                    <a href="#contact" class="button button__flex">
+                        Contact Me <i class="uil uil-message button__icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="home__scroll">
+                <a href="#about" class="home__scroll-button button__flex">
+                    <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                    <span class="home__scroll-name">Scroll down</span>
+                    <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about section" id="about">
+        <h2 class="section__title">About Me</h2>
+        <span class="section__subtitle">My Introduction</span>
+
+        <div class="about__container container grid">
+            <div class="about__data">
+                <p class="about__description">
+                    Full-stack web developer, with multiple years of experience in working with varieties of web
+                    technologies.
+                </p>
+            </div>
+            <div class="about__info">
+                <div>
+                    <span class="about__info-title">
+                        +03
+                    </span>
+                    <span class="about__info-name">
+                        Years <br> experience
+                    </span>
+                </div>
+
+                <div>
+                    <span class="about__info-title">
+                        {% if projects.count < 10 %}
+                        +0{{projects.count|add:1}}
+                        {% else %}
+                        +{{ projects.count|add:1}}
+                        {% endif %}
+                    </span>
+                    <span class="about__info-name">
+                        Completed <br> projects
+                    </span>
+                </div>
+
+            </div>
+
+            {% if cv %}
+            <div class="about__buttons">
+                <a download="" target="_blank"
+                    href="{{ cv.link }}"
+                    class="button button__flex">
+                    Download CV <i class="uil uil-download-alt button__icon"></i>
+                </a>
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <section class="skills section" id="skills">
+        <h2 class="section__title">Skills</h2>
+        <span class="section__subtitle">
+            My technical level
+        </span>
+
+        <div class="skills__container container grid">
+            <div class="skills__content skills__open">
+                <div class="skills__header">
+                    <i class="uil uil-brackets-curly skills__icon"></i>
+
+                    <div>
+                        <h1 class="skills__title">Frontend Developer</h1>
+                        <span class="skills__subtitle">More than 3 years experience</span>
+                    </div>
+
+                    <i class="uil uil-angle-down skills__arrow"></i>
+                </div>
+                <div class="skills__list grid">
+                    {% for skill in frontend %}
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">
+                                {{ skill.name }}
+                            </h3>
+                        </div>
+                    </div>
+                    {% empty %}
+                    There are no skills yet
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="skills__content skills__close">
+                <div class="skills__header">
+                    <i class="uil uil-server-network skills__icon"></i>
+
+                    <div>
+                        <h1 class="skills__title">Backend Developer</h1>
+                        <span class="skills__subtitle">More than 2 years experience</span>
+                    </div>
+
+                    <i class="uil uil-angle-down skills__arrow"></i>
+                </div>
+                <div class="skills__list grid">
+
+                    {% for skill in backend %}
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">
+                                {{ skill.name }}
+                            </h3>
+                        </div>
+                    </div>
+                    {% empty %}
+                    There are no skills yet
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="skills__content skills__close">
+                <div class="skills__header">
+                    <i class="uil uil-book-medical skills__icon"></i>
+
+                    <div>
+                        <h1 class="skills__title">Other Skills</h1>
+                    </div>
+
+                    <i class="uil uil-angle-down skills__arrow"></i>
+                </div>
+                <div class="skills__list grid">
+
+                    {% for skill in other %}
+                    <div class="skills__data">
+                        <div class="skills__titles">
+                            <h3 class="skills__name">
+                                {{ skill.name }}
+                            </h3>
+                        </div>
+                    </div>
+                    {% empty %}
+                    There are no skills yet
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="qualification section">
+        <h2 class="section__title">Qualification</h2>
+        <span class="section__subtitle">
+            My personal journey
+        </span>
+
+        <div class="qualification__container container">
+            <div class="qualification__tabs">
+                <div class="qualification__button button__flex qualification__active" data-target="#education">
+                    <i class="uil uil-graduation-cap qualification__icon"></i>
+                    Education
+                </div>
+            </div>
+
+            <div class="qualification__sections">
+                <div class="qualification__content qualification__active" data-content id="education">
+                    <div class="qualification__data">
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                        <div>
+                            <h3 class="qualification__title">
+                                Software Engineer
+                            </h3>
+                            <span class="qualification__subtitle">
+                                Syria, Homs, Al-Baath University
+                            </span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2015 - 2021
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="qualification__data">
+                        <div>
+                            <span class="qualification__rounder"></span>
+                            <span class="qualification__line"></span>
+                        </div>
+                        <div>
+                            <h3 class="qualification__title">
+                                Entrepreneurship Bootcamp
+                            </h3>
+                            <span class="qualification__subtitle">
+                                Syria, Homs, ICT Incubator
+                            </span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2017
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="qualification__data">
+                        <div>
+                            <span class="qualification__rounder"></span>
+                        </div>
+                        <div>
+                            <h3 class="qualification__title">
+                                ACM ICPC Contestant
+                            </h3>
+                            <span class="qualification__subtitle">
+                                ICPCID:
+                                <a href="https://icpc.baylor.edu/ICPCID/C0O9MZVJA5NJ" target="_blank">
+                                    C0O9MZVJA5NJ
+                                </a>
+                            </span>
+                            <div class="qualification__calendar">
+                                <i class="uil uil-calendar-alt"></i>
+                                2015-2017
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services section" id="services">
+        <h2 class="section__title">Services</h2>
+        <span class="section__subtitle">What I offer</span>
+
+        <div class="services__container container grid">
+            <div class="services__content">
+                <div>
+                    <i class="uil uil-arrow services__icon"></i>
+                    <h3 class="services__title">Frontend <br> Developer</h3>
+                </div>
+
+                <span class="button button__flex button__small button__link services__button">
+                    View more
+                    <i class="ui uil-arrow-right button__icon"></i>
+                </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-content">
+                            Frontend Developer
+                        </h4>
+                        <i class="uil uil-times services__modal-close"></i>
+
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>I create the UI.</p>
+                            </li>
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>I create the UX.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__content">
+                <div>
+                    <i class="uil uil-server-network services__icon"></i>
+                    <h3 class="services__title">Backend <br> Developer</h3>
+                </div>
+
+                <span class="button button__flex button__small button__link services__button">
+                    View more
+                    <i class="ui uil-arrow-right button__icon"></i>
+                </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-content">
+                            Backend Developer
+                        </h4>
+                        <i class="uil uil-times services__modal-close"></i>
+
+                        <ul class="services__modal-services grid">
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>I create the database schema for the web application.</p>
+                            </li>
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>I create the backend for the web application.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio section" id="portfolio">
+        <h2 class="section__title">
+            Portfolio
+        </h2>
+        <span class="section__subtitle">Most Recent Projects</span>
+        <div class="portfolio__container container swiper">
+            <div class="swiper-wrapper">
+
+                {% for project in projects %}
+
+                <div class="portfolio__content grid swiper-slide">
+                    <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="portfolio__img">
+                    <div class="portfolio__data">
+                        <h3 class="portfolio__title">
+                            {{ project.name }}
+                        </h3>
+                        <p class="portfolio__description">
+                            {{ project.description|truncatewords:20 }}
+                        </p>
+                        <a href="{{ project.get_absolute_url }}"
+                            class="button button__flex button__small portfolio__button">
+                            View More
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                {% empty %}
+
+                    <h3>There are no projects created yet</h3>
+
+                {% endfor %}
+
+            </div>
+
+            {% if projects.count > 0 %}
+
+            <div class="swiper-button-next">
+                <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+            </div>
+            <div class="swiper-button-prev">
+                <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+            </div>
+            <div class="swiper-pagination"></div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="portfolio__container-second">
+            <a href="{% url 'main:project-list' %}" class="button button__flex projects__button">
+                View All Projects
+            </a>
+        </div>
+
+    </section>
+
+    <section class="project section">
+        <div class="project__bg">
+            <div class="project__container container grid">
+                <div class="project__data">
+                    <h2 class="project__title">
+                        You have a new project?
+                    </h2>
+                    <p class="project__description">
+                        Contact me now and get 50% discount for your first project!
+                    </p>
+                    <a href="#contact" class="button button__flex button__white">
+                        Contact Me
+                        <i class="uil uil-message project__icon button__icon"></i>
+                    </a>
+                </div>
+
+                <img src="https://res.cloudinary.com/fadi-rezek-salloum/image/upload/q_100/v1633389112/Common%20Images/Assets/dev_iq2tb2.webp"
+                    alt="Project Promotion" class="project__img">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact section" id="contact">
+        <h2 class="section__title">Contact Me</h2>
+        <span class="section__subtitle">
+            Get In Touch
+        </span>
+
+        <div class="contact__container container grid">
+            <div>
+                <div class="contact__information">
+                    <i class="uil uil-phone contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Call Me</h3>
+                        <span class="contact__subtitle">
+                            +963-993-791-128
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="uil uil-envelope contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Email</h3>
+                        <span class="contact__subtitle">
+                            fadirezeksalloum.dev@gmail.com
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="uil uil-map-marker contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Location</h3>
+                        <span class="contact__subtitle">
+                            Syria - Homs
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <form method="post" class="contact__form grid">
+
+                {% csrf_token %}
+
+                <div class="contact__inputs grid">
+                    <div class="contact__content">
+                        <label for="name" class="contact__label">Name</label>
+                        <input type="text" name="name" class="contact__input">
+                    </div>
+                    <div class="contact__content">
+                        <label for="email" class="contact__label">Email</label>
+                        <input type="email" name="email" class="contact__input">
+                    </div>
+                </div>
+                <div class="contact__content">
+                    <label for="message" class="contact__label">Message</label>
+                    <textarea name="message" cols="0" rows="7" class="contact__input"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="button button__flex contact__btn">
+                        Send Message
+                        <i class="uil uil-message button__icon contact__btn-icon"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__bg">
+        <div class="footer__container container grid">
+            <div>
+                <h1 class="footer__title">
+                    Fadi Rezek Salloum
+                </h1>
+                <span class="footer__subtitle">
+                    Full-Stack Web Developer
+                </span>
+            </div>
+
+            <ul class="footer__links">
+                <li>
+                    <a href="#services" class="footer__link">
+                        Services
+                    </a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="footer__link">
+                        Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="footer__link">
+                        Contact Me
+                    </a>
+                </li>
+            </ul>
+
+            <div class="footer__socials">
+                <a href="https://www.facebook.com/fadi.rezeksalloum" target="_blank" class="footer__social">
+                    <i class="uil uil-facebook-f"></i>
+                </a>
+
+                <a href="https://www.instagram.com/fadi.rezek.salloum/" target="_blank" class="footer__social">
+                    <i class="uil uil-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#" class="scrollup" id="scroll-top">
+    <i class="uil uil-arrow-up scrollup__icon"></i>
+</a>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".portfolio__container", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        keyboard: true,
+    });
+</script>
+{% endblock scripts %}

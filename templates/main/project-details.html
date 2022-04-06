@@ -1,0 +1,60 @@
+{% extends '_base.html' %}
+
+{% block title %}
+Fadi Rezek Salloum | {{ project.name }}
+{% endblock title %}
+
+{% block content %}
+
+<main class="main">
+    <section class="project__details">
+        <h2 class="section__title">
+            {{ project.name }} Details
+        </h2>
+
+        <div class="details__container container grid">
+            <div class="details__content grid">
+                <div>
+                    <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="details__img">
+                </div>
+                <div>
+                    <h3 class="details__title">Description: </h3>
+                    <span class="details__text">
+                        {{ project.description }}
+                    </span>
+                </div>
+
+                <div>
+                    <h3 class="details__title">Created: </h3>
+                    <span class="details__text">
+                        {{ project.created.date }}
+                    </span>
+                </div>
+
+                <div>
+                    <h3 class="details__title">Categories: </h3>
+
+
+                    <div class="details__text-categories">
+                        {% for cat in project.get_categories %}
+                            <div>
+                                {{ cat }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                <div>
+                    <a href="{{ project.website_url }}" class="button button__flex details__button" target="_blank">
+                        Visit Website
+                        <i class="uil uil-arrow-right button__icon details__button-icon"></i>
+                    </a>
+                </div>                
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}
