@@ -4,6 +4,7 @@ import os
 import dj_database_url
 import environ
 import cloudinary
+import django_heroku
 
 env = environ.Env()
 env.read_env()
@@ -116,6 +117,8 @@ CLOUDINARY_STORAGE = {
 PRODUCTION = os.environ.get('DATABASE_URL') != None
 
 if PRODUCTION:
+    django_heroku.settings(locals())
+
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False
     ALLOWED_HOSTS = ['fadi-rezek-salloum.herokuapp.com']

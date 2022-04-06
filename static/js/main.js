@@ -182,7 +182,7 @@ else {
         scale: 1.00,
         scaleMobile: 1.00,
         color: 0x798ce6,
-        backgroundColor: 0xfbfbfe,
+        backgroundColor: 0xefeffe,
         points: 20.00,
         maxDistance: 30.00,
         spacing: 20.00,
