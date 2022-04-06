@@ -9,13 +9,13 @@ class CV(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
-    description = models.TextField()
-    thumbnail = models.ImageField(upload_to='PortfolioApp/uploads')
+    description = models.TextField(null=True, blank=True)
+    thumbnail = models.ImageField(upload_to='PortfolioApp/uploads', null=True, blank=True)
     slug = models.SlugField(unique=True, max_length=120, blank=True)
 
-    website_url = models.URLField(null=False, blank=False)
+    website_url = models.URLField(null=True, blank=True)
 
-    categories = models.ManyToManyField(Categories)
+    categories = models.ManyToManyField(Categories, blank=True)
 
     views = models.PositiveIntegerField(default=0)
 
