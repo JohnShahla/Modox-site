@@ -2,9 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 
-from cloudinary import uploader
-from cloudinary.models import CloudinaryField
-
 from categories.models import Categories
 
 class CV(models.Model):
@@ -13,13 +10,7 @@ class CV(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
-    thumbnail = CloudinaryField(
-        'image',
-        overwrite=True,
-        transformation={"quality": 100},
-        format="webp",
-        folder="PortfolioApp/Uploads",
-    )
+    thumbnail = models.ImageField(upload_to='PortfolioApp/uploads')
     slug = models.SlugField(unique=True, max_length=120, blank=True)
 
     website_url = models.URLField(null=False, blank=False)
