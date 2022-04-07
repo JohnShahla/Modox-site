@@ -1109,7 +1109,7 @@ img {
 
     .profile__img {
         width: 180px;
-        height: auto;
+        height: 180px;
     }
 
     .about__container,

@@ -1,19 +1,13 @@
 from pathlib import Path
 
-import os
-import dj_database_url
 import environ
 import cloudinary
-import django_heroku
+
 
 env = environ.Env()
 env.read_env()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-DEBUG = True
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = env('SECRET_KEY')
 
@@ -70,13 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PortfolioApp.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -113,18 +100,3 @@ CLOUDINARY_STORAGE = {
   'API_KEY' : env('API_KEY'), 
   'API_SECRET' : env('API_SECRET')
 }
-
-PRODUCTION = os.environ.get('DATABASE_URL') != None
-
-if PRODUCTION:
-    django_heroku.settings(locals())
-
-    DATABASES['default'] = dj_database_url.config()
-    DEBUG = False
-    ALLOWED_HOSTS = ['fadi-rezek-salloum.herokuapp.com']
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = True

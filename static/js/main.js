@@ -1,7 +1,6 @@
 const navMenu = document.getElementById('nav__menu'),
     navToggle = document.getElementById('nav__toggle'),
-    navClose = document.getElementById('nav__close'),
-    body = document.getElementById('#body');
+    navClose = document.getElementById('nav__close');
 
 // Toggle Navbar
 if (navToggle) {
@@ -139,6 +138,7 @@ window.addEventListener('scroll', scrollTop)
 // Dark Theme
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
+const lightTheme = 'light-theme'
 const iconTheme = 'uil-sun'
 
 const selectedTheme = localStorage.getItem('selected-theme')
@@ -149,50 +149,52 @@ const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-mo
 
 if (selectedTheme) {
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](lightTheme)
     themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
 }
 
-if (document.body.classList.contains('dark-theme')) {
-    VANTA.NET({
-        el: ".dark-theme",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: true,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x1d2a6a,
-        backgroundColor: 0x0e101b,
-        points: 20.00,
-        maxDistance: 30.00,
-        spacing: 20.00,
-        showDots: false
-    })
-}
+let elem = getCurrentTheme() === 'dark' ? '.dark-theme' : '.light-theme'
 
-else {
+VANTA.NET({
+    el: elem,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x1d2a6a,
+    backgroundColor: 0x0e101b,
+    points: 18.00,
+    maxDistance: 30.00,
+    spacing: 20.00,
+    showDots: false
+})
+
+themeButton.addEventListener('click', () => {
+    document.body.classList.toggle(darkTheme)
+    document.body.classList.toggle(lightTheme)
+    themeButton.classList.toggle(iconTheme)
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+
+    let elem = getCurrentTheme() === 'dark' ? '.dark-theme' : '.light-theme'
+
     VANTA.NET({
-        el: body,
+        el: elem,
         mouseControls: true,
         touchControls: true,
-        gyroControls: true,
+        gyroControls: false,
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
         color: 0x798ce6,
         backgroundColor: 0xefeffe,
-        points: 20.00,
+        points: 18.00,
         maxDistance: 30.00,
         spacing: 20.00,
         showDots: false
     })
-}
-
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
 })
