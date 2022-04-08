@@ -14,9 +14,11 @@ Fadi Rezek Salloum | {{ project.name }}
 
         <div class="details__container container grid">
             <div class="details__content grid">
+                {% if project.thumbnail %}
                 <div>
                     <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="details__img">
                 </div>
+                {% endif %}
                 <div>
                     <h3 class="details__title">Description: </h3>
                     <span class="details__text">

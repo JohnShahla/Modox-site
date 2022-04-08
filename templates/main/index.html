@@ -38,7 +38,8 @@ Fadi Rezek Salloum | Home
                         Full-Stack Web Developer
                     </h3>
                     <p class="home__description">
-                        Motivated web developer who loves to always learn new techniques, creatively solve problems and develop maintainable websites.
+                        Motivated web developer who loves to always learn new techniques, creatively solve problems and
+                        develop maintainable websites.
                     </p>
                     <a href="#contact" class="button button__flex">
                         Contact Me <i class="uil uil-message button__icon"></i>
@@ -94,9 +95,7 @@ Fadi Rezek Salloum | Home
 
             {% if cv %}
             <div class="about__buttons">
-                <a download="" target="_blank"
-                    href="{{ cv.link }}"
-                    class="button button__flex">
+                <a download="" target="_blank" href="{{ cv.link }}" class="button button__flex">
                     Download CV <i class="uil uil-download-alt button__icon"></i>
                 </a>
             </div>
@@ -204,8 +203,12 @@ Fadi Rezek Salloum | Home
         <div class="qualification__container container">
             <div class="qualification__tabs">
                 <div class="qualification__button button__flex qualification__active" data-target="#education">
-                    <i class="uil uil-graduation-cap qualification__icon"></i>
+                    <i class="uil uil-university qualification__icon"></i>
                     Education
+                </div>
+                <div class="qualification__button button__flex" data-target="#certificates">
+                    <i class="uil uil-file-landscape-alt qualification__icon"></i>
+                    Certificates
                 </div>
             </div>
 
@@ -213,10 +216,7 @@ Fadi Rezek Salloum | Home
                 <div class="qualification__content qualification__active" data-content id="education">
                     <div class="qualification__data">
                         <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-                        <div>
+                            <p><i class="uil uil-graduation-cap qualification__icon"></i></p>
                             <h3 class="qualification__title">
                                 Software Engineer
                             </h3>
@@ -229,13 +229,13 @@ Fadi Rezek Salloum | Home
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="qualification__content" data-content id="certificates">
 
                     <div class="qualification__data">
                         <div>
-                            <span class="qualification__rounder"></span>
-                            <span class="qualification__line"></span>
-                        </div>
-                        <div>
+                            <p><i class="uil uil-award qualification__icon"></i></p>
                             <h3 class="qualification__title">
                                 Entrepreneurship Bootcamp
                             </h3>
@@ -247,14 +247,11 @@ Fadi Rezek Salloum | Home
                                 2017
                             </div>
                         </div>
-
                     </div>
 
                     <div class="qualification__data">
                         <div>
-                            <span class="qualification__rounder"></span>
-                        </div>
-                        <div>
+                            <p><i class="uil uil-award qualification__icon"></i></p>
                             <h3 class="qualification__title">
                                 ACM ICPC Contestant
                             </h3>
@@ -273,6 +270,7 @@ Fadi Rezek Salloum | Home
 
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -358,7 +356,9 @@ Fadi Rezek Salloum | Home
                 {% for project in projects %}
 
                 <div class="portfolio__content grid swiper-slide">
+                    {% if project.thumbnail %}
                     <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="portfolio__img">
+                    {% endif %}
                     <div class="portfolio__data">
                         <h3 class="portfolio__title">
                             {{ project.name }}
@@ -376,7 +376,7 @@ Fadi Rezek Salloum | Home
 
                 {% empty %}
 
-                    <h3>There are no projects created yet</h3>
+                <h3>There are no projects created yet</h3>
 
                 {% endfor %}
 
