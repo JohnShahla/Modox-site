@@ -135,28 +135,8 @@ function scrollTop() {
 }
 window.addEventListener('scroll', scrollTop)
 
-// Dark Theme
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const lightTheme = 'light-theme'
-const iconTheme = 'uil-sun'
-
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
-
-if (selectedTheme) {
-    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-    document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](lightTheme)
-    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
-}
-
-let elem = getCurrentTheme() === 'dark' ? '.dark-theme' : '.light-theme'
-
 VANTA.NET({
-    el: elem,
+    el: '.dark-theme',
     mouseControls: true,
     touchControls: true,
     gyroControls: false,
@@ -166,35 +146,8 @@ VANTA.NET({
     scaleMobile: 1.00,
     color: 0x1d2a6a,
     backgroundColor: 0x0e101b,
-    points: 18.00,
-    maxDistance: 30.00,
-    spacing: 20.00,
-    showDots: false
-})
-
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme)
-    document.body.classList.toggle(lightTheme)
-    themeButton.classList.toggle(iconTheme)
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-
-    let elem = getCurrentTheme() === 'dark' ? '.dark-theme' : '.light-theme'
-
-    VANTA.NET({
-        el: elem,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x798ce6,
-        backgroundColor: 0xefeffe,
-        points: 18.00,
-        maxDistance: 30.00,
-        spacing: 20.00,
-        showDots: false
-    })
+    points: 10.00,
+    maxDistance: 20.00,
+    spacing: 25.00,
+    showDots: true
 })
