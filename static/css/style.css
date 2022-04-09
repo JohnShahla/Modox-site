@@ -496,8 +496,13 @@ img {
     justify-content: center;
     margin-bottom: var(--mb-2);
     text-align: center;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, .4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .7);
     padding: 1rem 0;
+    transition: all .5s ease-in-out;
+}
+
+.qualification__data:hover {
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 1);
 }
 
 .qualification__title {
@@ -888,25 +893,30 @@ img {
 }
 
 .projects__content {
-    gap: 2rem;
+    padding: 2rem 0;
+    gap: 3rem;
 }
 
 .projects__list {
-    padding-top: 6rem;
+    margin-top: 5rem;
     min-height: 100vh;
 }
 
 .projects__list-item {
     border-radius: .5rem;
-    box-shadow: 0 1px 6px rgba(236, 236, 236, .2);
-    overflow: hidden;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, .7);
+    transition: all .5s ease-in-out;
+}
+
+.projects__list-item:hover {
+    box-shadow: 0 0px 25px rgba(0, 0, 0, 1);
 }
 
 .projects__list-img {
     width: 100%;
-    height: 250px;
+    height: 230px;
     object-fit: cover;
-    object-position: 0 center;
+    object-position: 10px center;
 }
 
 .projects__list-title {
