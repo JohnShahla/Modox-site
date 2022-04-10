@@ -916,7 +916,7 @@ img {
     width: 100%;
     height: 230px;
     object-fit: cover;
-    object-position: 10px center;
+    object-position: 0 center;
 }
 
 .projects__list-title {
@@ -939,7 +939,7 @@ img {
     transition: .3s;
 }
 
-.projects__list-icon:hover {
+.projects__list-btn:hover .projects__list-icon {
     transform: translateX(.25rem);
 }
 
