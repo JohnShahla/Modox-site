@@ -993,7 +993,7 @@ img {
     transition: .3s;
 }
 
-.details__button-icon:hover {
+.details__button:hover .details__button-icon {
     transform: translateX(.4rem);
 }
 

@@ -48,10 +48,19 @@ Fadi Rezek Salloum | {{ project.name }}
                 </div>
 
                 <div>
+                    {% if 'github' in project.website_url or 'gitlab' in project.website_url %}
+                    <a href="{{ project.website_url }}" class="button button__flex details__button" target="_blank">
+                        View Code
+                        <i class="uil uil-arrow-right button__icon details__button-icon"></i>
+                    </a>
+
+                    {% else %}
+
                     <a href="{{ project.website_url }}" class="button button__flex details__button" target="_blank">
                         Visit Website
                         <i class="uil uil-arrow-right button__icon details__button-icon"></i>
                     </a>
+                    {% endif %}
                 </div>                
 
             </div>
