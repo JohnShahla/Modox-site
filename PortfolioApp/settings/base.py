@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'cloudinary_storage',
     'cloudinary',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

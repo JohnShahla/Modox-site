@@ -10,13 +10,15 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>
         {% block title %}{% endblock title %}
     </title>
+
+    {% block extra_head %}{% endblock extra_head %}
+
 </head>
 
 <body class="dark-theme">
@@ -28,8 +30,6 @@
     {% endblock content %}
 
     {% block scripts %}{% endblock scripts %}
-
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.net.min.js"></script>

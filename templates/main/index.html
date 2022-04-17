@@ -1,10 +1,15 @@
 {% extends '_base.html' %}
 
 {% load static %}
+{% load mathfilters %}
 
 {% block title %}
 Fadi Rezek Salloum | Home
 {% endblock title %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+{% endblock extra_head %}
 
 {% block content %}
 
@@ -41,8 +46,9 @@ Fadi Rezek Salloum | Home
                         Motivated web developer who loves to always learn new techniques, creatively solve problems and
                         develop maintainable websites.
                     </p>
-                    <a href="#contact" class="button button__flex">
-                        Contact Me <i class="uil uil-message button__icon"></i>
+                    <a href="#contact" class="button button__flex contact__btn">
+                        Contact Me
+                        <i class="uil uil-message button__icon contact__btn-icon"></i>
                     </a>
                 </div>
             </div>
@@ -285,7 +291,7 @@ Fadi Rezek Salloum | Home
 
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -365,27 +371,30 @@ Fadi Rezek Salloum | Home
             Portfolio
         </h2>
         <span class="section__subtitle">Most Recent Projects</span>
-        <div class="portfolio__container container swiper">
+        <div class="swiper mySwiper">
             <div class="swiper-wrapper">
 
                 {% for project in projects %}
 
-                <div class="portfolio__content grid swiper-slide">
-                    {% if project.thumbnail %}
-                    <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="portfolio__img">
-                    {% endif %}
-                    <div class="portfolio__data">
-                        <h3 class="portfolio__title">
-                            {{ project.name }}
-                        </h3>
-                        <p class="portfolio__description">
-                            {{ project.description|truncatewords:20 }}
-                        </p>
-                        <a href="{{ project.get_absolute_url }}"
-                            class="button button__flex button__small portfolio__button">
-                            View More
-                            <i class="uil uil-arrow-right button__icon"></i>
-                        </a>
+                <div class="swiper-slide">
+                    <div class="portfolio__card">
+                        {% if project.thumbnail %}
+                        <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail"
+                            class="portfolio__card-img">
+                        {% endif %}
+                        <div class="portfolio__card-content">
+                            <h3 class="portfolio__card-header">
+                                {{ project.name }}
+                            </h3>
+                            <p class="portfolio__card-text">
+                                {{ project.description|truncatewords:10 }}
+                            </p>
+                            <a href="{{ project.get_absolute_url }}"
+                                class="button button__flex button__small portfolio__button">
+                                View More
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -397,17 +406,9 @@ Fadi Rezek Salloum | Home
 
             </div>
 
-            {% if projects.count > 0 %}
-
-            <div class="swiper-button-next">
-                <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-            </div>
-            <div class="swiper-button-prev">
-                <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-
-            {% endif %}
 
         </div>
 
@@ -559,20 +560,30 @@ Fadi Rezek Salloum | Home
 {% endblock content %}
 
 {% block scripts %}
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script>
-    var swiper = new Swiper(".portfolio__container", {
-        cssMode: true,
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        initialSlide: {{ projects.count|div:2 }},
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        keyboard: true,
     });
 </script>
+
 {% endblock scripts %}
