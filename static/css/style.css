@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&display=swap');
 
 :root {
     --header-height: 3rem;
@@ -21,7 +21,7 @@
     --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
-    --body-font: 'Roboto', sans-serif;
+    --body-font: 'Barlow Condensed', sans-serif;;
     --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
@@ -295,6 +295,8 @@ img {
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
     object-fit: cover;
+    border: 3px solid #fff;
+    padding: 5px;
 }
 
 .home__data {
@@ -493,16 +495,51 @@ img {
 
 .qualification__data {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-bottom: var(--mb-2);
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, .7);
-    padding: 1rem 0;
+    padding: 0 0 1rem 0;
     transition: all .5s ease-in-out;
 }
 
 .qualification__data:hover {
     box-shadow: 0 0px 25px rgba(0, 0, 0, 1);
+}
+
+.qualification__nav {
+    display: flex;
+    justify-content: start;
+    box-shadow: 0px 1px 2px #06090a;
+    padding: 8px;
+    background: #0c0d13;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.qualification__nav-red {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #FF1F1F;
+    border: 1px solid #e33e41;
+}
+
+.qualification__nav-yellow {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #FFC23D;
+    border: 1px solid #e09e3e;
+}
+
+.qualification__nav-green {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #00CA3B;
+    border: 1px solid #14ae46;
 }
 
 .qualification__title {
