@@ -350,15 +350,16 @@ img {
 
 .button {
     display: inline-block;
-    background-color: var(--first-color);
-    color: #FFF;
+    color: #FFF !important;
     padding: 1rem;
     border-radius: .5rem;
     font-weight: var(--font-medium);
+    transition: 0.5s;
+    background: linear-gradient(90deg, rgba(0,212,255,1), rgba(75,76,163,1) 51%, rgba(0,212,255,1)) var(--x, 0)/ 200%;
 }
 
 .button:hover {
-    background-color: var(--first-color-alt);
+    --x: 100%;
 }
 
 .button__icon {

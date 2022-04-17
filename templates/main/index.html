@@ -306,7 +306,7 @@ Fadi Rezek Salloum | Home
                     <h3 class="services__title">Frontend <br> Developer</h3>
                 </div>
 
-                <span class="button button__flex button__small button__link services__button">
+                <span class="button__flex button__small button__link services__button">
                     View more
                     <i class="ui uil-arrow-right button__icon"></i>
                 </span>
@@ -338,7 +338,7 @@ Fadi Rezek Salloum | Home
                     <h3 class="services__title">Backend <br> Developer</h3>
                 </div>
 
-                <span class="button button__flex button__small button__link services__button">
+                <span class="button__flex button__small button__link services__button">
                     View more
                     <i class="ui uil-arrow-right button__icon"></i>
                 </span>
@@ -387,7 +387,7 @@ Fadi Rezek Salloum | Home
                                 {{ project.name }}
                             </h3>
                             <p class="portfolio__card-text">
-                                {{ project.description|truncatewords:10 }}
+                                {{ project.description|truncatechars:50 }}
                             </p>
                             <a href="{{ project.get_absolute_url }}"
                                 class="button button__flex button__small portfolio__button">
