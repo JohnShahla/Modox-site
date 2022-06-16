@@ -4,7 +4,7 @@
 {% load mathfilters %}
 
 {% block title %}
-Fadi Rezek Salloum | Home
+Modox | Home
 {% endblock title %}
 
 {% block extra_head %}
@@ -57,18 +57,15 @@ Fadi Rezek Salloum | Home
         </div>
     </section>
 
-
-
-
     <section class="services section" id="services">
         <h2 class="section__title">Services</h2>
         <span class="section__subtitle">What We offer</span>
 
-        <div class="services__container container grid">
+        <div class="services__container">
             <div class="services__content">
                 <div>
-                    <i class="uil uil-arrow services__icon"></i>
-                    <h3 class="services__title">Frontend <br> Developer</h3>
+                    <i class="uil uil-laptop services__icon"></i>
+                    <h3 class="services__title">Websites <br> Development</h3>
                 </div>
 
                 <span class="button__flex button__small button__link services__button">
@@ -79,18 +76,19 @@ Fadi Rezek Salloum | Home
                 <div class="services__modal">
                     <div class="services__modal-content">
                         <h4 class="services__modal-content">
-                            Frontend Developer
+                            Websites Development
                         </h4>
                         <i class="uil uil-times services__modal-close"></i>
 
                         <ul class="services__modal-services grid">
+                            {% comment %} Repeat "li" below to add more sentences {% endcomment %}
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>I create the UI.</p>
+                                <p>We create the User Interfaces.</p>
                             </li>
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>I create the UX.</p>
+                                <p>We create the backend for the websites.</p>
                             </li>
                         </ul>
                     </div>
@@ -99,8 +97,8 @@ Fadi Rezek Salloum | Home
 
             <div class="services__content">
                 <div>
-                    <i class="uil uil-server-network services__icon"></i>
-                    <h3 class="services__title">Backend <br> Developer</h3>
+                    <i class="uil uil-mobile-android services__icon"></i>
+                    <h3 class="services__title">Mobile Applications <br> Development</h3>
                 </div>
 
                 <span class="button__flex button__small button__link services__button">
@@ -111,18 +109,81 @@ Fadi Rezek Salloum | Home
                 <div class="services__modal">
                     <div class="services__modal-content">
                         <h4 class="services__modal-content">
-                            Backend Developer
+                            Mobile Applications Development
                         </h4>
                         <i class="uil uil-times services__modal-close"></i>
 
                         <ul class="services__modal-services grid">
+                            {% comment %} Repeat "li" below to add more sentences {% endcomment %}
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>I create the database schema for the web application.</p>
+                                <p>We create Android apps.</p>
                             </li>
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>I create the backend for the web application.</p>
+                                <p>We create IOS apps.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__content">
+                <div>
+                    <i class="uil uil-atom services__icon"></i>
+                    <h3 class="services__title">Artificial Intelligence <br> Development</h3>
+                </div>
+
+                <span class="button__flex button__small button__link services__button">
+                    View more
+                    <i class="ui uil-arrow-right button__icon"></i>
+                </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-content">
+                            Artificial Intelligence Development
+                        </h4>
+                        <i class="uil uil-times services__modal-close"></i>
+
+                        <ul class="services__modal-services grid">
+                            {% comment %} Repeat "li" below to add more sentences {% endcomment %}
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>We create the AI models.</p>
+                            </li>
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>We train these models.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__content">
+                <div>
+                    <i class="uil uil-setting services__icon"></i>
+                    <h3 class="services__title">Mobile Applications <br> Development</h3>
+                </div>
+
+                <span class="button__flex button__small button__link services__button">
+                    View more
+                    <i class="ui uil-arrow-right button__icon"></i>
+                </span>
+
+                <div class="services__modal">
+                    <div class="services__modal-content">
+                        <h4 class="services__modal-content">
+                            Systems Development
+                        </h4>
+                        <i class="uil uil-times services__modal-close"></i>
+
+                        <ul class="services__modal-services grid">
+                            {% comment %} Repeat "li" below to add more sentences {% endcomment %}
+                            <li class="services__modal-service">
+                                <i class="uil uil-check-circle services__modal-icon"></i>
+                                <p>We create systems.</p>
                             </li>
                         </ul>
                     </div>

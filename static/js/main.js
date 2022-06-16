@@ -99,19 +99,26 @@ function scrollActive() {
     const scrollY = window.pageYOffset
 
     sections.forEach(current => {
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
         let sectionId = current.getAttribute('id')
 
         if ( sectionId.startsWith('portfolio') ) {
-            console.log('asd');
-            sectionId = 'portfolio'
-        }
+            let wo = document.getElementById('portfolio_web').offsetTop;
+            let so = document.getElementById('portfolio_system').offsetTop + document.getElementById('portfolio_system').offsetHeight;
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+            if (scrollY > wo && scrollY <= so) {
+                document.querySelector('.nav__menu a[href*=portfolio]').classList.add('active-link')
+            } else {
+                document.querySelector('.nav__menu a[href*=portfolio]').classList.remove('active-link')
+            }
         } else {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            const sectionHeight = current.offsetHeight
+            const sectionTop = current.offsetTop - 50;
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+            } else {
+                document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            }
         }
     })
 }
@@ -140,19 +147,19 @@ function scrollTop() {
 }
 window.addEventListener('scroll', scrollTop)
 
-VANTA.NET({
-    el: '.dark-theme',
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0x1d2a6a,
-    backgroundColor: 0x0e101b,
-    points: 15.00,
-    maxDistance: 30.00,
-    spacing: 30.00,
-    showDots: true
-})
+// VANTA.NET({
+//     el: '.dark-theme',
+//     mouseControls: true,
+//     touchControls: true,
+//     gyroControls: false,
+//     minHeight: 200.00,
+//     minWidth: 200.00,
+//     scale: 1.00,
+//     scaleMobile: 1.00,
+//     color: 0x1d2a6a,
+//     backgroundColor: 0x0e101b,
+//     points: 15.00,
+//     maxDistance: 30.00,
+//     spacing: 30.00,
+//     showDots: true
+// })

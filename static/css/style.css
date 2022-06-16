@@ -574,14 +574,16 @@ img {
 }
 
 .services__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 .services__content {
-    position: relative;
+    width: 270px;
     background-color: var(--container-color);
-    padding: 3.5rem .5rem 1.25rem 1.5rem;
+    padding: 3.5rem 0.5rem 1.25rem 1.5rem;
     border-radius: .25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
     transition: .3s;
@@ -1101,8 +1103,9 @@ img {
 
 
 @media screen and (max-width: 350px) {
+
     .container {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
         margin-left: var(--mb-1);
         margin-right: var(--mb-1);
     }
@@ -1137,12 +1140,14 @@ img {
     }
 
     .services__container {
-        grid-template-columns: max-content;
+        flex-direction: column;
+        column-gap: 1.5rem;
         justify-content: center;
+        padding: 0 20px;
     }
 
     .services__content {
-        padding-right: 3.5rem;
+        width: 100%;
     }
 
     .services__modal {
@@ -1312,11 +1317,6 @@ img {
         grid-template-columns: .5fr;
     }
 
-    .services__container {
-        grid-template-columns: repeat(3, 218px);
-        justify-content: center;
-    }
-
     .services__icon {
         font-size: 2rem;
     }
@@ -1417,10 +1417,6 @@ img {
         transform: translateX(-6rem);
     }
 
-    .services__container {
-        grid-template-columns: repeat(3, 238px);
-    }
-
     .portfolio__container {
         overflow-x: visible;
     }
@@ -1472,6 +1468,19 @@ img {
     .projects__content {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem
+    }
+}
+
+@media (min-width: 351px) and (max-width: 1023px) {
+    .services__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .services__content {
+        width: 90%;
     }
 }
 
