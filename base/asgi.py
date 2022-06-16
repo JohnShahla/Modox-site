@@ -2,6 +2,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PortfolioApp.settings.dev')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'base.settings.dev')
 
 application = get_asgi_application()

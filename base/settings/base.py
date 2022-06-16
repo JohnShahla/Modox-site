@@ -44,7 +44,7 @@ MIDDLEWARE = [
 
 SITE_ID = 1
 
-ROOT_URLCONF = 'PortfolioApp.urls'
+ROOT_URLCONF = 'base.urls'
 
 TEMPLATES = [
     {
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PortfolioApp.wsgi.application'
+WSGI_APPLICATION = 'base.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
