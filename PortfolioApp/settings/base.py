@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'categories',
     'main',
     'contact',
-    'skills',
 
     'widget_tweaks',
     'cloudinary_storage',

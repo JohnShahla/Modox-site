@@ -1,18 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Project, CV
+from .models import Project
 
 from contact.forms import MessageForm
-from skills.models import Skill
 
 def home_view(request):
     projects = Project.objects.all()
-    cv = CV.objects.all().first()
 
-    frontend = Skill.objects.filter(tag__name='frontend')
-    backend = Skill.objects.filter(tag__name='backend')
-    other = Skill.objects.filter(tag__name='other')
+    web = Project.objects.filter(categories__name = 'web').count()
+    android = Project.objects.filter(categories__name = 'android').count()
+    ai = Project.objects.filter(categories__name = 'ai').count()
+    system = Project.objects.filter(categories__name = 'system').count()
 
     form = MessageForm(request.POST or None)
 
@@ -23,14 +22,14 @@ def home_view(request):
             form = MessageForm()
             return redirect(reverse("main:home"))
 
-    context = {
-        'frontend': frontend,
-        'backend': backend,
-        'other': other,
-        
+    context = {    
         'projects': projects,
-        'cv': cv,
         'form': form,
+
+        'web': web,
+        'android': android,
+        'ai': ai,
+        'system': system
     }
 
     return render(request, 'main/index.html', context)

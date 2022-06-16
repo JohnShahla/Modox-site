@@ -4,9 +4,6 @@ from django.template.defaultfilters import slugify
 
 from categories.models import Categories
 
-class CV(models.Model):
-    link = models.URLField(null=True, blank=True)
-
 class Project(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
@@ -15,7 +12,7 @@ class Project(models.Model):
 
     website_url = models.URLField(null=True, blank=True)
 
-    categories = models.ManyToManyField(Categories, blank=True)
+    categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
     views = models.PositiveIntegerField(default=0)
 
@@ -36,9 +33,6 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse("main:details", kwargs={"slug": self.slug})
-
-    def get_categories(self):
-        return self.categories.all()
 
     def get_views(self):
         return self.views
