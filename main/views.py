@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Project
+from .models import Project, ProjectImages
 
 from contact.forms import MessageForm
 
@@ -38,6 +38,8 @@ def home_view(request):
 def detail_view(request, slug):
     project = get_object_or_404(Project, slug=slug)
 
+    images = ProjectImages.objects.filter(project=project)
+
     if project:
         if not request.user.is_authenticated:
             project.views += 1
@@ -45,6 +47,7 @@ def detail_view(request, slug):
 
     context = {
         'project': project,
+        'images': images,
     }
 
     return render(request, 'main/project-details.html', context)

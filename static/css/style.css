@@ -22,7 +22,6 @@
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
     --body-font: 'Barlow Condensed', sans-serif;
-    ;
     --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
     --h2-font-size: 1.25rem;
@@ -1021,6 +1020,7 @@ img {
 .project__details {
     padding-top: 6rem;
     min-height: 100vh;
+    height: max-content;
 }
 
 .details__img {
@@ -1039,16 +1039,14 @@ img {
 }
 
 .details__text-categories {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    display: flex;
     margin-top: 1rem;
     margin-bottom: 1rem;
     text-align: center;
 }
 
 .details__text-categories div {
-    background: var(--first-color);
+    color: white;
     padding: .5rem .8rem;
     border-radius: .3rem;
 }

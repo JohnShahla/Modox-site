@@ -11,7 +11,15 @@
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
+    {% if '/projects/' in request.path %}
+
+    <link rel="stylesheet" href="{% static 'css/project-details.css' %}">
+
+    {% else %}
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% endif %}
 
     <title>
         {% block title %}{% endblock title %}
@@ -26,7 +34,6 @@
     {% include 'navbar.html' %}
 
     {% block content %}
-
     {% endblock content %}
 
     {% block scripts %}{% endblock scripts %}
