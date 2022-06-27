@@ -139,7 +139,7 @@ img {
 }
 
 .container {
-    max-width: 768px;
+    max-width: 1000px;
     margin-left: var(--mb-1-5);
     margin-right: var(--mb-1-5);
 }
@@ -271,9 +271,10 @@ img {
 }
 
 .home__content {
-    grid-template-columns: .5fr 3fr;
+    grid-template-columns: .8fr 3fr;
     padding-top: 3.5rem;
     align-items: center;
+    padding-left: 8rem;
 }
 
 .home__social {
@@ -283,7 +284,7 @@ img {
 }
 
 .home__social-icon {
-    font-size: 1.25rem;
+    font-size: 1.55rem;
     color: var(--first-color);
 }
 
@@ -406,7 +407,7 @@ img {
 }
 
 .about__info-name {
-    font-size: var(--smaller-font-size);
+    font-size: 1.4rem;
 }
 
 .about__info-title,
@@ -773,6 +774,7 @@ img {
 .project__title {
     font-size: var(--h2-font-size);
     margin-bottom: var(--mb-0-75);
+    padding-top: 2.5rem;
 }
 
 .project__description {
@@ -794,7 +796,7 @@ img {
 }
 
 .project__img {
-    width: 262px;
+    width: 350px;
 
     justify-self: center;
 }
@@ -1124,6 +1126,15 @@ img {
 
     .home__content {
         grid-template-columns: .25fr 3fr;
+        padding-left: 0;
+    }
+
+    .home__social {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home__social-icon {
+        padding-right: 2rem;
     }
 
     .profile__img {
@@ -1164,8 +1175,27 @@ img {
     }
 }
 
-@media screen and (min-width: 568px) {
+@media screen and (min-width: 351px) and (max-width: 567px) {
     .home__content {
+        padding-left: 0;
+    }
+
+    .home__social {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home__social-icon {
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .home__container {
+        width: 100%;
+    }
+
+    .home__content {
+        width: 100%;
         grid-template-columns: max-content 1fr 1fr;
     }
 
@@ -1358,7 +1388,7 @@ img {
         border-radius: 1rem;
         padding: 3rem 2.5rem 0;
         grid-template-columns: 1fr max-content;
-        column-gap: 3rem;
+        column-gap: 2.3rem;
     }
 
     .project__data {
@@ -1578,5 +1608,14 @@ img {
 
     .notfound h2 {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden !important;
+    }
+    nav {
+        padding: 2rem 0;
     }
 }

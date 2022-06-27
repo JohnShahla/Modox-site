@@ -50,26 +50,5 @@ def detail_view(request, slug):
     return render(request, 'main/project-details.html', context)
 
 
-def project_list(request):
-    projects_list = Project.objects.all()
-
-    paginator = Paginator(projects_list, 9)
-    page = request.GET.get('page')
-
-    try:
-        projects = paginator.page(page)
-    except PageNotAnInteger:
-        projects = paginator.page(1)
-    except EmptyPage:
-        projects = paginator.page(paginator.num_pages)
-
-
-    context = {
-        'projects': projects,
-    }
-
-    return render(request, 'main/project-list.html', context)
-
-
 def error_404_view(request, *args, **kwargs):
     return render(request, '404.html')

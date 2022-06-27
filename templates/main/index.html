@@ -18,17 +18,14 @@ Modox | Home
         <div class="home__container container grid">
 
             <div class="home__content grid">
-                <!-- <div class="home__social">
-                    <a href="https://linkedin.com/in/fadi-rezek-salloum/" target="_blank" class="home__social-icon">
-                        <i class="uil uil-linkedin-alt"></i>
+                <div class="home__social">
+                    <a href="https://www.instagram.com/modox_tech/" target="_blank" class="home__social-icon">
+                        <i class="uil uil-instagram-alt"></i>
                     </a>
-                    <a href="https://github.com/fadi-rezek-salloum" target="_blank" class="home__social-icon">
-                        <i class="uil uil-github-alt"></i>
+                    <a href="https://www.facebook.com/modox.tech/" target="_blank" class="home__social-icon">
+                        <i class="uil uil-facebook"></i>
                     </a>
-                    <a href="https://www.facebook.com/fadi.rezeksalloum" target="_blank" class="home__social-icon">
-                        <i class="uil uil-facebook-f"></i>
-                    </a>
-                </div> -->
+                </div>
 
                 <div class="home__data">
                     <h1 class="home__title">
@@ -40,10 +37,6 @@ Modox | Home
                     <p class="home__description">
                         You imagine it, We create it.
                     </p>
-                    <!-- <a href="#contact" class="button button__flex contact__btn">
-                        Contact Me
-                        <i class="uil uil-message button__icon contact__btn-icon"></i>
-                    </a> -->
                 </div>
             </div>
 
@@ -242,12 +235,6 @@ Modox | Home
 
         </div>
 
-        <div class="portfolio__container-second">
-            <a href="{% url 'main:project-list' %}" class="button button__flex projects__button">
-                View All Projects
-            </a>
-        </div>
-
     </section>
 
     <section class="portfolio section" id="portfolio_android">
@@ -298,12 +285,6 @@ Modox | Home
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
 
-        </div>
-
-        <div class="portfolio__container-second">
-            <a href="{% url 'main:project-list' %}" class="button button__flex projects__button">
-                View All Projects
-            </a>
         </div>
 
     </section>
@@ -358,12 +339,6 @@ Modox | Home
 
         </div>
 
-        <div class="portfolio__container-second">
-            <a href="{% url 'main:project-list' %}" class="button button__flex projects__button">
-                View All Projects
-            </a>
-        </div>
-
     </section>
     
     <section class="portfolio section" id="portfolio_system">
@@ -416,12 +391,6 @@ Modox | Home
 
         </div>
 
-        <div class="portfolio__container-second">
-            <a href="{% url 'main:project-list' %}" class="button button__flex projects__button">
-                View All Projects
-            </a>
-        </div>
-
     </section>
 
     <section class="project section">
@@ -432,63 +401,50 @@ Modox | Home
                         You have a new project?
                     </h2>
                     <p class="project__description">
-                        Contact me now and get 50% discount for your first project!
+                        Contact us now and get 50% discount for your first project!
                     </p>
                     <a href="#contact" class="button button__flex contact__btn">
-                        Contact Me
+                        Contact Us
                         <i class="uil uil-message button__icon contact__btn-icon"></i>
                     </a>
                 </div>
 
-                <img src="https://res.cloudinary.com/fadi-rezek-salloum/image/upload/q_100/v1633389112/Common%20Images/Assets/dev_iq2tb2.webp"
+                <img src="{% static 'images/contact.png' %}"
                     alt="Project Promotion" class="project__img">
             </div>
         </div>
     </section>
 
     <section class="about section" id="about">
-        <h2 class="section__title">About Me</h2>
-        <span class="section__subtitle">My Introduction</span>
+        <h2 class="section__title">About Us</h2>
+        <span class="section__subtitle">Our Introduction</span>
 
         <div class="about__container container grid">
             <div class="about__data">
                 <p class="about__description">
-                    Full-stack web developer, with multiple years of experience in working with varieties of web
-                    technologies.
+                    We are a software company that provides reliable, scalable, and high-quality software applications, built by highly qualified engineers.
                 </p>
             </div>
             <div class="about__info">
                 <div>
                     <span class="about__info-title">
-                        +03
+                        Founded
                     </span>
                     <span class="about__info-name">
-                        Years <br> experience
+                        2016
                     </span>
                 </div>
 
                 <div>
                     <span class="about__info-title">
-                        {% if projects.count < 10 %}
-                        +0{{projects.count|add:1}}
-                        {% else %}
-                        +{{ projects.count|add:1}}
-                        {% endif %}
+                         Projects
                     </span>
                     <span class="about__info-name">
-                        Completed <br> projects
+                        +50
                     </span>
                 </div>
 
             </div>
-
-            {% if cv %}
-            <div class="about__buttons">
-                <a download="" target="_blank" href="{{ cv.link }}" class="button button__flex">
-                    Download CV <i class="uil uil-download-alt button__icon"></i>
-                </a>
-            </div>
-            {% endif %}
 
         </div>
     </section>
@@ -506,7 +462,7 @@ Modox | Home
                     <div>
                         <h3 class="contact__title">Call US</h3>
                         <span class="contact__subtitle">
-                            +963-935-975-476
+                            +963 935 975 476
                         </span>
                     </div>
                 </div>
@@ -516,7 +472,7 @@ Modox | Home
                     <div>
                         <h3 class="contact__title">Email</h3>
                         <span class="contact__subtitle">
-                            johnshahla@hotmail.com
+                            modox.tech@gmail.com
                         </span>
                     </div>
                 </div>
@@ -586,13 +542,13 @@ Modox | Home
                 </li>
                 <li>
                     <a href="#contact" class="footer__link">
-                        Contact Me
+                        Contact Us
                     </a>
                 </li>
             </ul>
 
             <div class="footer__socials">
-                <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                <a href="https://www.facebook.com/modox.tech/" target="_blank" class="footer__social">
                     <i class="uil uil-facebook-f"></i>
                 </a>
 

@@ -147,19 +147,17 @@ function scrollTop() {
 }
 window.addEventListener('scroll', scrollTop)
 
-// VANTA.NET({
-//     el: '.dark-theme',
-//     mouseControls: true,
-//     touchControls: true,
-//     gyroControls: false,
-//     minHeight: 200.00,
-//     minWidth: 200.00,
-//     scale: 1.00,
-//     scaleMobile: 1.00,
-//     color: 0x1d2a6a,
-//     backgroundColor: 0x0e101b,
-//     points: 15.00,
-//     maxDistance: 30.00,
-//     spacing: 30.00,
-//     showDots: true
-// })
+VANTA.FOG({
+    el: ".dark-theme",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0x193661,
+    midtoneColor: 0xb5498,
+    lowlightColor: 0xe2b57,
+    baseColor: 0x0,
+    blurFactor: 0.53,
+    zoom: 1.50
+  })
