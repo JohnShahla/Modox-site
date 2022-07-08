@@ -20,15 +20,14 @@ Modox | {{ project.name }}
 
         <div class="details__container container grid">
             <div class="details__content grid">
-                {% if project.thumbnail %}
-                <div>
-                    <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail" class="details__img">
-                </div>
-                {% endif %}
-
                 {% if images %}
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
+                        {% if project.thumbnail %}
+                        <div class="swiper-slide">
+                            <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail">
+                        </div>
+                        {% endif %}
                         {% for image in images %}
                             <div class="swiper-slide">
                                 <img src="{{ image.image.url }}" alt="{{ img.project.name }} Thumbnail" />
