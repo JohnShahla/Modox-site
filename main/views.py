@@ -1,7 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Project, ProjectImages
+from .forms import ProjectCreationForm
 
 from contact.forms import MessageForm
 
@@ -51,6 +53,29 @@ def detail_view(request, slug):
     }
 
     return render(request, 'main/project-details.html', context)
+
+
+def project_add(request):
+
+    if request.method == 'POST':
+        form = ProjectCreationForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            instance = form.save()
+
+            for img in request.FILES.get('images'):
+                ProjectImages.objects.create(image=img, project=instance)
+
+            return HttpResponseRedirect(reverse('project_add'))
+    
+    else:
+        form = ProjectCreationForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'main/add-project.html', context)
 
 
 def error_404_view(request, *args, **kwargs):

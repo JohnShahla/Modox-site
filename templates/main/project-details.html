@@ -54,6 +54,7 @@ Modox | {{ project.name }}
                     </span>
                 </div>
 
+                {% if project.tags.all %}
                 <div>
                     <h3 class="details__title">Tags: </h3>
 
@@ -68,6 +69,7 @@ Modox | {{ project.name }}
                     </div>
 
                 </div>
+                {% endif %}
 
                 {% if project.website_url %}
                 <div>
