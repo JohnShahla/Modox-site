@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Project, ProjectImages
 from .forms import ProjectCreationForm
@@ -66,7 +65,7 @@ def project_add(request):
             for img in request.FILES.getlist('images'):
                 ProjectImages.objects.create(image=img, project=instance)
 
-            return HttpResponseRedirect(reverse('project_add'))
+            return HttpResponseRedirect('/administrator/project/add/')
     
     else:
         form = ProjectCreationForm()
