@@ -22,7 +22,7 @@ class Project(models.Model):
 
     categories = models.ForeignKey(Categories, on_delete=models.CASCADE)
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     views = models.PositiveIntegerField(default=0)
 

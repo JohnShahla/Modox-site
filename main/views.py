@@ -63,7 +63,7 @@ def project_add(request):
         if form.is_valid():
             instance = form.save()
 
-            for img in request.FILES.get('images'):
+            for img in request.FILES.getlist('images'):
                 ProjectImages.objects.create(image=img, project=instance)
 
             return HttpResponseRedirect(reverse('project_add'))
