@@ -4,10 +4,6 @@
 Modox | {{ project.name }}
 {% endblock title %}
 
-{% block extra_head %}
-<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-{% endblock extra_head %}
-
 {% block content %}
 
 <main class="main">
@@ -20,26 +16,9 @@ Modox | {{ project.name }}
 
         <div class="details__container container grid">
             <div class="details__content grid">
-                {% if images %}
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                        {% if project.thumbnail %}
-                        <div class="swiper-slide">
-                            <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail">
-                        </div>
-                        {% endif %}
-                        {% for image in images %}
-                            <div class="swiper-slide">
-                                <img src="{{ image.image.url }}" alt="{{ img.project.name }} Thumbnail" />
-                            </div>
-                        {% endfor %}
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                {% endif %}
-
+                <div>
+                    <img src="{{project.thumbnail}}" alt="thumb">
+                </div>
                 <div>
                     <h3 class="details__title">Description: </h3>
                     <span class="details__text">
@@ -99,22 +78,3 @@ Modox | {{ project.name }}
 </main>
 
 {% endblock content %}
-
-{% block scripts %}
-
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            type: "progressbar",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
-
-{% endblock scripts %}

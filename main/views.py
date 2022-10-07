@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
-from .models import Project, ProjectImages
+from .models import Project
 from .forms import ProjectCreationForm
 
 from contact.forms import MessageForm
@@ -39,8 +40,6 @@ def home_view(request):
 def detail_view(request, slug):
     project = get_object_or_404(Project, slug=slug)
 
-    images = ProjectImages.objects.filter(project=project)
-
     if project:
         if not request.user.is_authenticated:
             project.views += 1
@@ -48,7 +47,6 @@ def detail_view(request, slug):
 
     context = {
         'project': project,
-        'images': images,
     }
 
     return render(request, 'main/project-details.html', context)
@@ -57,13 +55,10 @@ def detail_view(request, slug):
 def project_add(request):
 
     if request.method == 'POST':
-        form = ProjectCreationForm(request.POST, request.FILES)
+        form = ProjectCreationForm(request.POST)
 
         if form.is_valid():
             instance = form.save()
-
-            for img in request.FILES.getlist('images'):
-                ProjectImages.objects.create(image=img, project=instance)
 
             return HttpResponseRedirect('/administrator/project/add/')
     

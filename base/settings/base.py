@@ -1,8 +1,6 @@
 from pathlib import Path
 
 import environ
-import cloudinary
-
 
 env = environ.Env()
 env.read_env()
@@ -26,8 +24,6 @@ INSTALLED_APPS = [
     'contact',
 
     'widget_tweaks',
-    'cloudinary_storage',
-    'cloudinary',
     'mathfilters',
     'taggit',
 ]
@@ -93,11 +89,3 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = { 
-  'CLOUD_NAME' : env('CLOUD_NAME'), 
-  'API_KEY' : env('API_KEY'), 
-  'API_SECRET' : env('API_SECRET')
-}
