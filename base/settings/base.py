@@ -89,3 +89,10 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = 'uploads'
+
+SITE_ID = 1
+
+TAGGIT_CASE_INSENSITIVE = True

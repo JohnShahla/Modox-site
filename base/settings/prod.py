@@ -1,21 +1,36 @@
+import environ
+
 from .base import *
 
-import os
+env = environ.Env()
+env.read_env()
 
-import django_heroku
-import dj_database_url
-
-django_heroku.settings(locals())
-
-DATABASES['default'] = dj_database_url.config()
 DEBUG = False
-ALLOWED_HOSTS = ['modox-tech.herokuapp.com']
+
+ALLOWED_HOSTS = ['modox.pythonanywhere.com']
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 SESSION_COOKIE_SECURE = True
+
 CSRF_COOKIE_SECURE = True
+
 SECURE_SSL_REDIRECT = True
+
+DATABASE = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'HOST': env('DB_HOST'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'PORT': 3306
+    }
+}
 
 LOGGING = {
     'version': 1,
@@ -51,4 +66,3 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
