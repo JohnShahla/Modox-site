@@ -161,7 +161,7 @@ Modox | Home
             <div class="services__content">
                 <div>
                     <i class="uil uil-setting services__icon"></i>
-                    <h3 class="services__title">System Applications <br> Development</h3>
+                    <h3 class="services__title">Graphic <br> Design</h3>
                 </div>
 
                 <span class="button__flex button__small button__link services__button">
@@ -172,7 +172,7 @@ Modox | Home
                 <div class="services__modal">
                     <div class="services__modal-content">
                         <h4 class="services__modal-content">
-                            Systems Development
+                            Graphic Design
                         </h4>
                         <i class="uil uil-times services__modal-close"></i>
 
@@ -180,11 +180,11 @@ Modox | Home
                             {% comment %} Repeat "li" below to add more sentences {% endcomment %}
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>Complex systems.</p>
+                                <p>Interactive UI/UX.</p>
                             </li>
                             <li class="services__modal-service">
                                 <i class="uil uil-check-circle services__modal-icon"></i>
-                                <p>Suited for large companies and organisations.</p>
+                                <p>Modern Themes/Designs.</p>
                             </li>
                         </ul>
                     </div>
@@ -348,18 +348,70 @@ Modox | Home
         </div>
 
     </section>
-    
-    <section class="portfolio section" id="portfolio_system">
+
+    <section class="portfolio section" id="portfolio_financial_ai">
         <h2 class="section__title">
-            System
+            Financial AI
         </h2>
         <span class="section__subtitle">Most Recent Projects</span>
-        <div class="swiper mySwiperSystem">
+        <div class="swiper mySwiperFinancialAi">
             <div class="swiper-wrapper">
 
                 {% for project in projects %}
 
-                {% if project.categories.name == 'system' %}
+                {% if project.categories.name == 'financial' %}
+
+                <div class="swiper-slide">
+                    <div class="portfolio__card">
+                        {% if project.thumbnail %}
+                        <img src="{{ project.thumbnail.url }}" alt="{{ project.name }} Thumbnail"
+                            class="portfolio__card-img">
+                        {% endif %}
+                        <div class="portfolio__card-content">
+                            <h3 class="portfolio__card-header">
+                                {{ project.name }}
+                            </h3>
+                            <p class="portfolio__card-text">
+                                {{ project.description|truncatechars:50 }}
+                            </p>
+                            <a href="{{ project.get_absolute_url }}"
+                                class="button button__flex button__small portfolio__button">
+                                View More
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% empty %}
+
+                <h3>There are no projects created yet</h3>
+
+                {% endfor %}
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+    
+    <section class="portfolio section" id="portfolio_graphic">
+        <h2 class="section__title">
+            Graphic Design
+        </h2>
+        <span class="section__subtitle">Most Recent Projects</span>
+        <div class="swiper mySwiperGraphic">
+            <div class="swiper-wrapper">
+
+                {% for project in projects %}
+
+                {% if project.categories.name == 'graphic' %}
 
                 <div class="swiper-slide">
                     <div class="portfolio__card">
@@ -644,11 +696,33 @@ Modox | Home
         },
     });
 
-    var swiper = new Swiper(".mySwiperSystem", {
+    var swiper = new Swiper(".mySwiperFinancialAi", {
         effect: "coverflow",
         centeredSlides: true,
         slidesPerView: 'auto',
-        initialSlide: {{system}} % 2 == 0 ? {{system}} / 2 : Math.ceil({{ system }} / 2) - 1,
+        initialSlide: {{financial_ai}} % 2 == 0 ? {{financial_ai}} / 2 : Math.ceil({{ financial_ai }} / 2) - 1,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    var swiper = new Swiper(".mySwiperGraphic", {
+        effect: "coverflow",
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        initialSlide: {{graphic}} % 2 == 0 ? {{graphic}} / 2 : Math.ceil({{ graphic }} / 2) - 1,
         coverflowEffect: {
             rotate: 50,
             stretch: 0,

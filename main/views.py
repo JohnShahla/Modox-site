@@ -13,7 +13,8 @@ def home_view(request):
     web = Project.objects.filter(categories__name = 'web').count()
     android = Project.objects.filter(categories__name = 'android').count()
     ai = Project.objects.filter(categories__name = 'ai').count()
-    system = Project.objects.filter(categories__name = 'system').count()
+    financial_ai = Project.objects.filter(categories__name = 'financial_ai').count()
+    graphic = Project.objects.filter(categories__name = 'graphic').count()
 
     form = MessageForm(request.POST or None)
 
@@ -31,7 +32,8 @@ def home_view(request):
         'web': web,
         'android': android,
         'ai': ai,
-        'system': system
+        'financial_ai': financial_ai,
+        'graphic': graphic
     }
 
     return render(request, 'main/index.html', context)
